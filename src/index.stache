@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Place My Order</title>
+
+    {{asset "css"}}
+
+  </head>
+  <body>
+    <can-import from="place-my-order-assets" />
+    <can-import from="dguide/app" as="viewModel" />
+
+    <can-import from="dguide/loading.component!" />
+    <can-import from="dguide/header.component!" />
+    <pmo-header page="{page}"></pmo-header>
+
+    {{#eq page "home"}}
+      <can-import from="dguide/home.component!" can-tag="pmo-loading">
+        <pmo-home></pmo-home>
+      </can-import>
+    {{/eq}}
+    {{#eq page "restaurants"}}
+      {{#if slug}}
+        {{#eq action 'order'}}
+          <can-import from="dguide/order/new/" can-tag="pmo-loading">
+            <pmo-order-new slug="{slug}"></pmo-order-new>
+          </can-import>
+        {{/eq}}
+
+        {{^if action}}
+          <can-import from="dguide/restaurant/details.component!" can-tag="pmo-loading">
+            <pmo-restaurant-details></pmo-restaurant-details>
+          </can-import>
+        {{/if}}
+      {{else}}
+        <can-import from="dguide/restaurant/list/" can-tag="pmo-loading">
+          <pmo-restaurant-list></pmo-restaurant-list>
+        </can-import>
+      {{/if}}
+    {{/eq}}
+    {{#eq page "order-history"}}
+      <can-import from="dguide/order/history.component!" can-tag="pmo-loading">
+        <pmo-order-history></pmo-order-history>
+      </can-import>
+    {{/eq}}
+
+    {{asset "inline-cache"}}
+
+
+    {{#switch @env.NODE_ENV}}
+
+      {{#case "production"}}
+        <script src="/node_modules/steal/steal.production.js"
+          main="dguide/index.stache!done-autorender"></script>
+      {{/case}}
+
+      {{#default}}
+        <script src="node_modules/steal/steal.js"></script>
+      {{/default}}
+
+    {{/switch}}
+  </body>
+</html>

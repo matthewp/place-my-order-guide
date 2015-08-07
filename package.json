@@ -1,0 +1,96 @@
+{
+  "name": "dguide",
+  "version": "0.0.0",
+  "main": "nw.html",
+  "description": "",
+  "homepage": "",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
+  "scripts": {
+    "api": "place-my-order-api --port 7070",
+    "test": "testee src/test.html --browsers firefox --reporter Spec",
+    "start": "can-serve --proxy http://localhost:7070 --port 8080"
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": [],
+  "system": {
+    "main": "dguide/index.stache!done-autorender",
+    "envs": {
+      "server,build": {
+        "map": {
+          "can/util/vdom/vdom": "can/util/vdom/vdom"
+        },
+        "meta": {
+          "jquery": {
+            "format": "global",
+            "deps": [
+              "can/util/vdom/vdom"
+            ]
+          }
+        }
+      }
+    },
+    "map": {
+      "can/util/vdom/vdom": "./@empty"
+    },
+    "meta": {
+      "can/util/vdom/vdom": {
+        "sideBundle": true
+      }
+    },
+    "directories": {
+      "lib": "src"
+    },
+    "configDependencies": [
+      "live-reload"
+    ],
+    "npmIgnore": [
+      "documentjs",
+      "testee",
+      "yeoman-generator"
+    ],
+    "bundle": [
+      "dguide/home.component!",
+      "dguide/order/new/",
+      "dguide/restaurant/details.component!",
+      "dguide/restaurant/list/",
+      "dguide/order/history.component!"
+    ]
+  },
+  "dependencies": {
+    "bit-tabs": "0.1.0-pre.1",
+    "can": "^2.3.0-pre.3",
+    "can-connect": "^0.1.0",
+    "can-ssr": "0.5.0",
+    "done-autorender": "^0.3.0",
+    "done-component": "^0.1.0",
+    "done-css": "^1.1.3",
+    "generator-donejs": "^0.1.1",
+    "jquery": "^2.1.4",
+    "place-my-order-api": "^0.4.2",
+    "place-my-order-assets": "^0.1.0",
+    "socket.io-client": "^1.3.6",
+    "steal": "^0.11.0-pre.0",
+    "steal-platform": "0.0.4",
+    "yeoman-environment": "^1.2.7"
+  },
+  "devDependencies": {
+    "documentjs": "^0.3.0-pre.5",
+    "donejs-deploy": "^0.1.1",
+    "funcunit": "^3.0.0",
+    "steal-cordova": "^0.1.0",
+    "steal-nw": "^0.1.0",
+    "steal-qunit": "^0.1.0",
+    "steal-tools": "^0.11.0-pre.7",
+    "testee": "^0.2.0"
+  },
+  "window": {
+    "width": 1060,
+    "height": 625
+  }
+}
