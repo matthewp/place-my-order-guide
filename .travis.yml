@@ -4,7 +4,7 @@ script: npm test
 before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-before_deploy:
+after_deploy:
   - node_modules/.bin/donejs-deploy
 deploy:
   skip_cleanup: true
