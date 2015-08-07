@@ -18,6 +18,24 @@
     "src"
   ],
   "keywords": [],
+  "donejs": {
+    "deploy": {
+      "root": "dist",
+      "services": {
+        "production": {
+          "type": "divshot",
+          "config": {
+            "name": "matthew-pmo",
+            "headers": {
+              "/**": {
+                "Access-Control-Allow-Origin": "*"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
   "system": {
     "main": "dguide/index.stache!done-autorender",
     "envs": {
