@@ -39,6 +39,9 @@
   "system": {
     "main": "dguide/index.stache!done-autorender",
     "envs": {
+      "production": {
+        "baseURL": "https://matthew-pmo.divshot.io/"
+      },
       "server,build": {
         "map": {
           "can/util/vdom/vdom": "can/util/vdom/vdom"
