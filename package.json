@@ -102,7 +102,7 @@
   },
   "devDependencies": {
     "documentjs": "^0.3.0-pre.5",
-    "donejs-deploy": "^0.1.1",
+    "donejs-deploy": "^0.1.5",
     "funcunit": "^3.0.0",
     "steal-cordova": "^0.1.0",
     "steal-nw": "^0.1.0",
