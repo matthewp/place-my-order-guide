@@ -1,1 +1,1 @@
-web: node_modules/.bin/can-serve --proxy http://place-my-order.com/api
+web: node_modules/.bin/can-serve --proxy https://placemyorder-46640.onmodulus.net/api
