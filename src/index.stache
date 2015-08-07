@@ -49,7 +49,7 @@
     {{#switch @env.NODE_ENV}}
 
       {{#case "production"}}
-        <script src="http://matthew-pmo.divshot.io/node_modules/steal/steal.production.js"
+        <script src="https://matthew-pmo.divshot.io/node_modules/steal/steal.production.js"
           main="dguide/index.stache!done-autorender"></script>
       {{/case}}
 
